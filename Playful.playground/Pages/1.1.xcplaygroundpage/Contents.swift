@@ -1,10 +1,10 @@
 //: Playground - noun: a place where people can play
 
-import UIKit
+import Foundation
 
-var str = "Hello, playground"
-
-// Implement an algorithm to determine if a string has all unique characters
+/* Question:
+ Is Unique: Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?
+ */
 
 func isUniqueCharacters(input: String) -> Bool {
   let charSetLength = 128 // Assume it's ASCII (128 characters)
@@ -29,7 +29,7 @@ func isUniqueCharacters(input: String) -> Bool {
 let result = isUniqueCharacters(input: "abc")
 print(result)
 
-/*
+/* Discussion:
  The runtime complexity is O(n), the length of the input while the space complexity is O(1), the space occupied by the ASCII character array.
  We could probably do better by using a bitmap array.
  If we don't want to use any data structure at all, we could compare each character with the rest of the characters. The runtime complexity becomes O(n^2).
