@@ -18,5 +18,3 @@ print(result)
  */
 
 //: [Next](@next)
-
-
