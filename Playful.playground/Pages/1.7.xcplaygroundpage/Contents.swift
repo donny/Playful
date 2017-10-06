@@ -15,6 +15,19 @@ print(result)
 
 /* Discussion:
  ...
+
+
+ Inner edge:
+ ab -> ba -> da -> ca
+ cd    cd    cb    db
+
+ Outer edge:
+ (1)     (2)     (3)     (4)
+ abcd -> dhla -> pona -> miea
+ efgh    efgb    efgb    nfgb
+ ijkl    ijkc    ijkc    ojkc
+ mnop    mnop    mlhd    plhd
+
  */
 
 //: [Next](@next)
