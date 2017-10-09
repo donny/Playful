@@ -14,20 +14,72 @@ func rotateMatrix(input: [[Int]]) -> [[Int]]? {
       return nil
     }
   }
-  var output = input
+  if matrixCount == 0 || matrixCount == 1 { return input }
 
-  for i in 0..<(matrixCount-1) {
-    // Swap 0,i with the rightmost column j,(matrixCount-1)
-    (output[0][i], output[i][matrixCount-1]) = (output[i][matrixCount-1], output[0][i])
+  var output = input
+  let lastIndex = matrixCount-1
+
+  // With the way the algorithm works, we need to exclude the last index (i.e. 0..<lastIndex).
+
+  // Swap the top row with the rightmost column
+  for i in 0..<lastIndex {
+    (output[0][i], output[i][lastIndex]) = (output[i][lastIndex], output[0][i])
   }
 
-  print(output)
+  // Swap the top row with the bottom row
+  for i in 0..<lastIndex {
+    (output[0][i], output[lastIndex][lastIndex-i]) = (output[lastIndex][lastIndex-i], output[0][i])
+  }
 
-  return input
+  // Swap the top row with the leftmost column
+  for i in 0..<lastIndex {
+    (output[0][i], output[lastIndex-i][0]) = (output[lastIndex-i][0], output[0][i])
+  }
+
+//  print(output)
+
+  // Build the inner matrix
+  var innerMatrix: [[Int]] = Array(repeatElement(Array(repeatElement(0, count: matrixCount-2)), count: matrixCount-2))
+  for i in 1..<lastIndex {
+    for j in 1..<lastIndex {
+      innerMatrix[i-1][j-1] = input[i][j]
+    }
+  }
+  if let innerResult = rotateMatrix(input: innerMatrix) {
+//    print(innerResult)
+    innerMatrix = innerResult
+  }
+
+  // Combine the result into output
+  for i in 1..<lastIndex {
+    for j in 1..<lastIndex {
+      output[i][j] = innerMatrix[i-1][j-1]
+    }
+  }
+
+  return output
+}
+
+func printMatrix(_ input: [[Int]]) -> Void {
+  for i in input {
+    print(i)
+  }
+}
+
+if let result = rotateMatrix(input: [[1, 2], [3, 4]]) {
+  printMatrix(result)
+} else {
+  print("Error")
 }
 
 if let result = rotateMatrix(input: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]) {
-  print(result)
+  printMatrix(result)
+} else {
+  print("Error")
+}
+
+if let result = rotateMatrix(input: [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]) {
+  printMatrix(result)
 } else {
   print("Error")
 }
