@@ -112,6 +112,9 @@ if let result = rotateMatrix(input: [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]
  (and do it for the inner (N-1)x(N-1) matrix)
 
  We assume that the input is an array of array of characters / numbers.
+
+ The runtime complexity for the multiple "for loops" is O(4N) and then we recurse to N-1, N-2, etc.
+ Thus, in total the runtime complexity is O( 4 (N * N+1 / 2)), maybe O(N log N)
  */
 
 //: [Next](@next)
