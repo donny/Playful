@@ -115,6 +115,8 @@ if let result = rotateMatrix(input: [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]
 
  The runtime complexity for the multiple "for loops" is O(4N) and then we recurse to N-1, N-2, etc.
  Thus, in total the runtime complexity is O( 4 (N * N+1 / 2)), maybe O(N log N)
+
+ But apparently, the algorithm is O(N^2) since any algorithm must touch all N^2 elements.
  */
 
 //: [Next](@next)

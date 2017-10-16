@@ -16,6 +16,7 @@ print(result)
 
 /* Discussion:
  Because it's a rotation, we could just combine input1 with itself, and check for the presence of input2.
+ The runtime is O(N).
  */
 
 //: [Next](@next)
