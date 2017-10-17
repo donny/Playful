@@ -18,12 +18,12 @@
         <page name='2.6'/>
         <page name='2.7'/>
         <page name='2.8'/>
-        <page name='Template'/>
         <page name='3.1'/>
         <page name='3.2'/>
         <page name='3.3'/>
         <page name='3.4'/>
         <page name='3.5'/>
         <page name='3.6'/>
+        <page name='Template'/>
     </pages>
 </playground>
